@@ -1,2 +1,0 @@
-# HMutils
-Useful powershell scripts
