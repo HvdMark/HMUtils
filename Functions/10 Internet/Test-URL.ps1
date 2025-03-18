@@ -21,6 +21,7 @@
 
 function Test-URL
 {
+    [CmdletBinding()]
     param 
     (
         [ValidateNotNullOrEmpty()]    
