@@ -1,6 +1,9 @@
 ## Changes
 [+] Added       [-] Removed         [*] Changed
 
+#### 0.0.3.1    2025-03-22
+[ ] Issues with Export-ModuleMembers, testing things
+
 #### 0.0.3      2025-03-22
 [+] Get-BootTime
 [+] Test-ADDomainController

@@ -6,7 +6,8 @@ Foreach ($Function in $Functions)
 {
     Try
     {
-        . $Function.fullname
+        . $Function
+        Write-Host ">> $Function"
     }
     Catch
     {
@@ -15,4 +16,4 @@ Foreach ($Function in $Functions)
 }
 
 # Export all the Functions modules
-Export-ModuleMember -Function $Functions.Basename
+Export-ModuleMember -Function * -Alias *
