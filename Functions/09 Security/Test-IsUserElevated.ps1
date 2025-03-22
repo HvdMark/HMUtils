@@ -18,7 +18,7 @@
     https://github.com/HvdMark/HMUtils/
 #>
 
-function Test-IsUserAdmin
+function Test-IsUserElevated
 {
     [CmdletBinding()]
 
