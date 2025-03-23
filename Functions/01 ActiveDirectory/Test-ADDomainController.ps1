@@ -19,15 +19,15 @@
     https://github.com/HvdMark/HMUtils/
 #>
 
-function Test-DomainController
+function Test-ADDomainController
 {
     [CmdletBinding()]
     param 
     (
         [Parameter(
-            Position=0,
-            Mandatory=$true,
-            HelpMessage="Specify the Domain Controller to test"
+            Position = 0,
+            Mandatory = $true,
+            HelpMessage = "Specify the Domain Controller to test"
         )]
         [string]$DomainController
     )

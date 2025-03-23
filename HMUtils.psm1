@@ -11,9 +11,9 @@ Foreach ($Function in $Functions)
     }
     Catch
     {
-        Write-Error -Message "Failed to import Function $($Function.fullname): $_"
+        Write-Verbose -Message "Failed to import Function $($Function.fullname): $_"
     }
 }
 
 # Export all the Functions modules
-Export-ModuleMember -Function * -Alias *
+Export-ModuleMember -Function $Functions.Basename

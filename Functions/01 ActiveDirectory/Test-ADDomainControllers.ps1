@@ -15,15 +15,15 @@
     .LINK
     https://github.com/HvdMark/HMUtils/
 #>
-function Test-DomainControllers 
+function Test-ADDomainControllers 
 {
 
     $result = $false
 
     try 
     {
-        $dcs = (Get-ADDomainController -filter * -ErrorAction Stop)
-        if ($dcs.Count -gt 0) {$result = $true}
+        $dcs = (Get-ADDomainController -Filter * -ErrorAction Stop)
+        if ($dcs.Count -gt 0) { $result = $true }
     }
     catch 
     {
