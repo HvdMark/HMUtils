@@ -1,3 +1,5 @@
+Write-Host "Importing HMUtils"
+
 # Get all Function *.ps1 files.
 $Functions = @( Get-ChildItem -Path $PSScriptRoot\*.ps1 -Recurse -ErrorAction SilentlyContinue )
    
@@ -7,11 +9,11 @@ Foreach ($Function in $Functions)
     Try
     {
         . $Function
-        Write-Host ">> $Function"
+        Write-Verbose ">> $Function"
     }
     Catch
     {
-        Write-Verbose -Message "Failed to import Function $($Function.fullname): $_"
+        Write-Verbose "Failed to import Function $($Function.fullname): $_"
     }
 }
 

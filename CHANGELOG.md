@@ -1,6 +1,15 @@
 ## Changes
 [+] Added       [-] Removed         [*] Changed
 
+#### 0.0.4      2025-03-xx
+[+] Get-ADAllUsersInfo
+[+] Get-ADLastLogon
+[+] Get-MainBoardSerial
+[+] Get-WindowsProductKey
+[+] Get-NetExternalIP
+[*] Changed folder structure in Active Directory
+[+] Get-ADGroupTreeViewMembers
+
 #### 0.0.3.2    2025-03-23
 [ ] Issues with Export-ModuleMembers, testing things
 
