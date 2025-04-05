@@ -1,7 +1,14 @@
 ## Changes
 [+] Added       [-] Removed         [*] Changed
 
-#### 0.0.4      2025-03-xx
+#### 0.0.5      2025-03-xx
+[+] Copy-ADGroupsFromUserToUser
+[+] Get-ADDomainAdmins
+[+] Get-ADAllDomainControllers
+[+] Get-WifiPasswords
+[+] Get-PowerShellVersion
+
+#### 0.0.4      2025-03-29
 [+] Get-ADAllUsersInfo
 [+] Get-ADLastLogon
 [+] Get-MainBoardSerial

@@ -16,7 +16,7 @@
     Email : Herby@vandermark.org
 
     .LINK
-    https://github.com/hvdm/HMUtils/
+    https://github.com/HvdMark/HMUtils/
 #>
 
 Import-Module ActiveDirectory
