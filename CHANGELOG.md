@@ -1,7 +1,13 @@
 ## Changes
 [+] Added       [-] Removed         [*] Changed
 
-#### 0.0.5      2025-03-xx
+#### 0.0.6      2025-05-21
+[+] Get-ADServers
+[+] Get-Hash
+[+] New-Password
+[+] Get-ADComputerSitename
+
+#### 0.0.5      2025-04-06
 [+] Copy-ADGroupsFromUserToUser
 [+] Get-ADDomainAdmins
 [+] Get-ADAllDomainControllers
