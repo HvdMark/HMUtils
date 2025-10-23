@@ -1,21 +1,55 @@
-Write-Host "Importing HMUtils"
+Write-Verbose "--- Environment checks -------------------------------------------------------"
+$ManifestFile = Join-Path $PSScriptRoot "HMutils.psd1"
+$ModuleInfo = Test-ModuleManifest -Path $ManifestFile
+Write-Verbose "Importing module                 : HMUtils $($ModuleInfo.Version)"
 
-# Get all Function *.ps1 files.
-$Functions = @( Get-ChildItem -Path $PSScriptRoot\*.ps1 -Recurse -ErrorAction SilentlyContinue )
-   
-# Loop through
-Foreach ($Function in $Functions)
+# Detect if machine is a Domain Controller
+$ComputerSystem = Get-CimInstance -Class Win32_ComputerSystem -ErrorAction SilentlyContinue
+$IsDC = $false
+if ($ComputerSystem -and $null -ne $ComputerSystem.DomainRole)
 {
-    Try
+    $IsDC = [bool]($ComputerSystem.DomainRole -ge 4)
+}
+Write-Verbose "Machine is a Domain Controller   : $IsDC"
+
+# Detect AD module presence
+$HasADModule = [bool](Get-Module -ListAvailable -Name ActiveDirectory)
+Write-Verbose "Machine has RSAT tools installed : $HasADModule"
+
+Write-Verbose "--- Checking folders ---------------------------------------------------------"
+
+$RootFolder = Join-Path $PSScriptRoot "Functions"
+if (-not ($HasADModule -or $IsDC))
+{
+    $ExcludedFolder = "01 ActiveDirectory"
+    $FoldersList = @(Get-ChildItem -Directory $RootFolder | Where-Object Name -NotMatch $ExcludedFolder -ErrorAction SilentlyContinue)
+}
+else
+{
+    $FoldersList = @(Get-ChildItem -Directory $RootFolder -ErrorAction SilentlyContinue)
+}
+
+# Collect all .ps1 files in the folders (recursively)
+$FunctionsList = foreach ($Folder in $FoldersList)
+{
+    Get-ChildItem -Path $Folder.FullName -Filter "*.ps1" -Recurse -ErrorAction SilentlyContinue
+}
+
+#Dot source the files
+foreach ($import in @($FunctionsList))
+{
+    try
     {
-        . $Function
-        Write-Verbose ">> $Function"
+        Write-Verbose "Importing function: $($import.fullname)"
+        . $import.fullname
     }
-    Catch
+    catch
     {
-        Write-Verbose "Failed to import Function $($Function.fullname): $_"
+        Write-Error -Message "Failed to import function $($import.fullname): $_"
     }
 }
 
-# Export all the Functions modules
-Export-ModuleMember -Function $Functions.Basename
+# # Export Public functions
+Write-Verbose "Exporting function: $($FunctionsList.Basename)"
+Export-ModuleMember -Function $FunctionsList.Basename
+

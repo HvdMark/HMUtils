@@ -1,6 +1,15 @@
 ## Changes
 [+] Added       [-] Removed         [*] Changed
 
+#### 0.0.7      2025-10-23
+[+] Add-HypervVM
+[+] Get-DiskSPace
+[+] Get-SidToUser
+[+] Get-UserToSid
+
+[*] Changed loading module functions.
+    When RSAT tools are not installed or machine is not a domain controller then those functions will not be loaded
+
 #### 0.0.6      2025-05-21
 [+] Get-ADServers
 [+] Get-Hash
