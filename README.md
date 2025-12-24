@@ -41,25 +41,30 @@ Import-Module HMUtils
 Function  | Description
 ------------- | -------------
 Add-HypervVM | Create a Hyper-V VM
+Disable-User | Disable a user in the Active Directory
+Enable-User | Enable a user in the Active Directory
 Get-ADAllUsersInfo | Get a list of all users and export it to a file
 Get-ADAllDomainControllers | Get a list of all domain controllers
 Get-ADComputerSitename | Get the current site an ip belongs to
 Get-ADDomainAdmins | Get a list of all users that have Administrator privileges
 Get-ADGroupTreeViewMembers | Get a tree of all (nested) group a user is member of
 Get-ADLastLogon | Get the user last logon
-Get-Hash | Get the hash of a string (SHA1/SHA256/SHA384/SHA512/MD4/MD5)
 Get-BootTime | Get the time and date when a machine is rebooted
 Get-DiskSpace | Get a list of all drives on a system
+Get-Hash | Get the hash of a string (SHA1/SHA256/SHA384/SHA512/MD4/MD5)
+Get-LocalAdmins | Get a list of all local admins
 Get-MainBoardSerial | Get the serial number of the mainboard
 Get-NetExternalIP | Get the external IP of your network
 Get-PowerShellVersion | Get the PowerShell version local or remote
 Get-SidToUser | Get the user that belongs to a sid
+Get-UserInformation | Get detailed information about a user
 Get-UserToSid | Get the sid of a user
 Get-WifiPasswords | Get a list of all Wifi profiles and the passwords used
 Get-WindowsProductKey | Get the windows product key from a local or remote computer
 New-Password | Create a random password
 Test-ADDomainController | Test the connection to a specific Domain Controller
 Test-ADDomainControllers | Test the connection to all Domain Controllers
+Test-Application | Test is an application ins installed
 Test-IsUserAdmin  | Test if a user has admin privileges
 Test-IsUserElevated  | Test if a user has been elevated as admin
 Test-Url  | Test if a website is available
